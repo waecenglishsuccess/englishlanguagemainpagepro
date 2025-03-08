@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Language Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #34495e;
+        }
+
+        /* Disabled link styling */
+        .disabled-link {
+            position: relative;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .disabled-link::after {
+            content: "COMING SOON";
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 5px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            display: none;
+        }
+
+        .disabled-link:hover::after {
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            margin: 2rem auto;
+            background-color: white;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-box {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-links.show {
+            display: block;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        .mobile-notice {
+            display: none;
+            background-color: #ffd700;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .notice-close {
+            background: none;
+            border: none;
+            color: #333;
+            float: right;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+
+        /* Show notice only on mobile devices in portrait mode */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .mobile-notice {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-notice" id="mobileNotice">
+        📱 For the best experience, please rotate your device to landscape mode.
+        <button class="notice-close" onclick="this.parentElement.style.display='none'">×</button>
+    </div>
+    <nav class="navbar">
+        <div class="logo">English Language Academy</div>
+        <button class="hamburger" id="hamburgerMenu">&#9776;</button>
+        <div class="nav-links" id="navLinks">
+            <div>
+                <a href="https://englishvideolectures.github.io/" target="_blank" class="link-button">VIDEO LECTURES</a>
+            </div>
+            <div>
+                <a href="https://speedtestenglish.github.io/" target="_blank">TEST YOUR SPEED</a>
+            </div>
+            <div>
+                <a class="disabled-link">DOWNLOADABLE RESOURCES</a>    
+            </div>
+            <a href="https://englishquizpremium.github.io/" target="_blank">PRACTICE QUESTIONS</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to English Language Academy</h1>
+        <p>Enhance your English skills with expert-curated content, interactive lessons, and engaging resources.</p>
+        
+        <div class="feature-grid">
+            <div class="feature-box">
+                <h2>Personalized Learning</h2>
+                <p>Custom English learning paths for students of all levels.</p>
+            </div>
+            <div class="feature-box">
+                <h2>Expert Tutors</h2>
+                <p>Learn from experienced English educators.</p>
+            </div>
+            <div class="feature-box">
+                <h2>Interactive Content</h2>
+                <p>Engaging video lectures, quizzes, and downloadable resources.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 English Language Academy. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu toggle
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navLinks = document.getElementById('navLinks');
+            hamburgerMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+            });
+
+            // Function to show "COMING SOON" popup
+            function showComingSoon(event) {
+                event.preventDefault(); // Prevent navigation
+                let popup = document.createElement("div");
+                popup.className = "popup-message";
+                popup.innerText = "COMING SOON";
+                document.body.appendChild(popup);
+
+                popup.style.position = "fixed";
+                popup.style.top = "50%";
+                popup.style.left = "50%";
+                popup.style.transform = "translate(-50%, -50%)";
+                popup.style.background = "rgba(0, 0, 0, 0.8)";
+                popup.style.color = "white";
+                popup.style.padding = "15px 20px";
+                popup.style.borderRadius = "5px";
+                popup.style.fontSize = "1rem";
+                popup.style.zIndex = "1000";
+
+                setTimeout(() => {
+                    document.body.removeChild(popup);
+                }, 2000);
+            }
+
+            // Add event listener to "DOWNLOADABLE RESOURCES" tab
+            const disabledLink = document.querySelector('.disabled-link');
+            if (disabledLink) {
+                disabledLink.addEventListener('click', showComingSoon);
+            }
+        });
+    </script>
+</body>
+</html>
